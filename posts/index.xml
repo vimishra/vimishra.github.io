@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Vikas&#39;s Blog</title>
+    <link>https://vimishra.github.io/posts/</link>
+    <description>Recent content in Posts on Vikas&#39;s Blog</description>
+    <image>
+      <url>https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 26 Jan 2022 12:50:27 +0530</lastBuildDate><atom:link href="https://vimishra.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Created a new Hugo setup</title>
+      <link>https://vimishra.github.io/posts/new-post/</link>
+      <pubDate>Wed, 26 Jan 2022 12:50:27 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/new-post/</guid>
+      <description>I have come to a full circle. Created a new post and setup using hugo. THought will use another theme, but can&amp;rsquo;t find something that&amp;rsquo;s better than PaperMod.
+Other than making some basic changes to the things I have left this largely the same.</description>
+    </item>
+    
+    <item>
+      <title>Basic Digit Classifier (for 2s and 9s) without tunable parameters</title>
+      <link>https://vimishra.github.io/posts/basic-digit-classifier/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/basic-digit-classifier/</guid>
+      <description>Motivation and approach In this case we are trying to build a very basic Digit Classifier. This is strictly speaking not a Deep Learning or a Machine Learning classifier since there are no tunable parameters here. But the intent behind this approach is to understand the basics of how to do digit classification. The intent here is not to do something super hard or tricky but to understand the basics of how to use Fast.</description>
+    </item>
+    
+    <item>
+      <title>Getting Back to Blogging</title>
+      <link>https://vimishra.github.io/posts/getting-back-to-blogging/</link>
+      <pubDate>Sat, 25 Sep 2021 08:51:46 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/getting-back-to-blogging/</guid>
+      <description>Planning to get back to blogging after a 2 month hiatus. I am trying to go through the Fast.ai course again. Chapter 4 is the one that I am finding the most challenging and I intend to work through that again.
+I think I need to write two posts to clear my own thoughts and test my own learning about this. The first part will be about the basic Digit classifier which uses the &amp;ldquo;idealized&amp;rdquo; 3 or 7 to check whether a new digit is a 3 or a 7.</description>
+    </item>
+    
+    <item>
+      <title>DL Cloud GPU Server - JarvisLabs vs AWS EC2</title>
+      <link>https://vimishra.github.io/posts/jarvislabs-vs-aws-ec2/</link>
+      <pubDate>Sat, 04 Sep 2021 22:50:43 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/jarvislabs-vs-aws-ec2/</guid>
+      <description>As I started getting deeper into the Fast.ai course, I had to make a decision on what Cloud GPU service to use. In general, there are two possibilities as listed on https://course.fast.ai/.
+ Notebook Server Full Linux Server  A notebook server is basically something that has a GPU but only exposes a notebook interface to you whereas a Full Linux server, will basically look like a remote machine in the cloud.</description>
+    </item>
+    
+    <item>
+      <title>Check if PyTorch is using the GPU</title>
+      <link>https://vimishra.github.io/posts/check-if-pytorch-is-using-gpu/</link>
+      <pubDate>Sat, 04 Sep 2021 22:29:14 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/check-if-pytorch-is-using-gpu/</guid>
+      <description>This is one of the first things we need to check whenever we are setting up a new system. The easiest way to check this is to use the below commands.
+1 2  # First let&amp;#39;s import pytorch import pytorch   Now let&amp;rsquo;s check if there are multiple devices.
+1 2  # How many GPUs are there? print(torch.cuda.device_count())   Check which GPU is the current one.</description>
+    </item>
+    
+    <item>
+      <title>Remove Submodule From Git</title>
+      <link>https://vimishra.github.io/posts/remove-submodule-from-git/</link>
+      <pubDate>Thu, 22 Jul 2021 16:19:48 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/remove-submodule-from-git/</guid>
+      <description>In order to remove a submodule from git, you need to follow the below 4 steps.
+ Delete the relevant line from the .gitmodules file. Delete the relevant section from .git/config. Run git rm --cached path_to_submodule (no trailing slash). Commit and delete the now untracked submodule files.  Example In my blog repo, I was trying multiple different themes and so had added a ton of submodules. Here is .gitmodules file.</description>
+    </item>
+    
+    <item>
+      <title>Introduction to NumPy</title>
+      <link>https://vimishra.github.io/posts/introduction-to-numpy/</link>
+      <pubDate>Fri, 16 Jul 2021 21:55:00 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/introduction-to-numpy/</guid>
+      <description>This chapter, along with chapter 3, outlines techniques for effectively loading, storing, and manipulating in-memory data in Python. The topic is very broad: datasets can come from a wide range of sources and a wide range of formats, including be collections of documents, collections of images, collections of sound clips, collections of numerical measurements, or nearly anything else. Despite this apparent heterogeneity, it will help us to think of all data fundamentally as arrays of numbers.</description>
+    </item>
+    
+    <item>
+      <title>Things to Learn</title>
+      <link>https://vimishra.github.io/posts/things-to-learn/</link>
+      <pubDate>Fri, 16 Jul 2021 16:43:45 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/things-to-learn/</guid>
+      <description>What are the various things I want to learn. Trying to keep a running list of the things that I should learn or continue to learn.
+ Deep Learning. Computer Architecture  Basic CPU architecture. Instruction Set. Memory and Caches. Virtual Memory   Low Power Design Multi clock Design. Python Libraries.  Matplotlib Numpy Pandas Pathlib PIL Fast.ai PyTorch    </description>
+    </item>
+    
+    <item>
+      <title>Convert Jupyter Notebook to Hugo Blog Post</title>
+      <link>https://vimishra.github.io/posts/notebook-to-blog-post/</link>
+      <pubDate>Fri, 16 Jul 2021 12:11:29 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/notebook-to-blog-post/</guid>
+      <description>Quick set of instructions to convert a Jupyter notebook to a hugo blog post.</description>
+    </item>
+    
+    <item>
+      <title>Plotting With Matplotlib</title>
+      <link>https://vimishra.github.io/posts/plotting-with-matplotlib/</link>
+      <pubDate>Fri, 16 Jul 2021 11:46:36 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/plotting-with-matplotlib/</guid>
+      <description>Matplotlib is the defacto Python plotting library. The library was designed to look as similar to Matlab as possible and have a very low entry barrier for people coming over from Matlab. This also explains its name. Some other alternatives are Plotly and Seaborn.
+Importing the matplotlib library Before we start plotting, we need to import the matplotlib library. The way to do this is via the import command.
+1 2 3  import matplotlib.</description>
+    </item>
+    
+    <item>
+      <title>Primes List</title>
+      <link>https://vimishra.github.io/posts/primes-list/</link>
+      <pubDate>Fri, 16 Jul 2021 08:36:25 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/primes-list/</guid>
+      <description>Extract all the prime number from a composite number with python This is a quick article to show you how to create an algorithm to extract all the prime numbers from a composite number in Python.
+Algorithm 1 2 3 4 5 6 7 8 9 10 11 12 13 14  def primes_list(N): &amp;#34;&amp;#34;&amp;#34; Extract all the prime numbers from a composite number Keyword arguments: N -- an integer Return: a list of prime numbers &amp;#34;&amp;#34;&amp;#34; for i in range(N-1, 0, -1): if i == 1: return [N] elif N % i == 0: return [int(N/i)] + primes_list(int(i))   Usage 1 2  print(primes_lists(12)) &amp;gt; [2,2,3]   Fundamental property of Primes Composite numbers can be arranged into rectangles but prime numbers cannot</description>
+    </item>
+    
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://vimishra.github.io/posts/markdown-syntax/</link>
+      <pubDate>Fri, 16 Jul 2021 06:06:29 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/markdown-syntax/</guid>
+      <description>Sample article showcasing basic Markdown syntax and formatting for HTML elements.</description>
+    </item>
+    
+  </channel>
+</rss>

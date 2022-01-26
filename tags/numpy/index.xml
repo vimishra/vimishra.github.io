@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>numpy on Vikas&#39;s Blog</title>
+    <link>https://vimishra.github.io/tags/numpy/</link>
+    <description>Recent content in numpy on Vikas&#39;s Blog</description>
+    <image>
+      <url>https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 16 Jul 2021 21:55:00 +0530</lastBuildDate><atom:link href="https://vimishra.github.io/tags/numpy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to NumPy</title>
+      <link>https://vimishra.github.io/posts/introduction-to-numpy/</link>
+      <pubDate>Fri, 16 Jul 2021 21:55:00 +0530</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/introduction-to-numpy/</guid>
+      <description>This chapter, along with chapter 3, outlines techniques for effectively loading, storing, and manipulating in-memory data in Python. The topic is very broad: datasets can come from a wide range of sources and a wide range of formats, including be collections of documents, collections of images, collections of sound clips, collections of numerical measurements, or nearly anything else. Despite this apparent heterogeneity, it will help us to think of all data fundamentally as arrays of numbers.</description>
+    </item>
+    
+  </channel>
+</rss>

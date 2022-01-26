@@ -1,0 +1,703 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Plotting With Matplotlib | Vikas's Blog</title>
+<meta name=keywords content>
+<meta name=description content="Matplotlib is the defacto Python plotting library. The library was designed to look as similar to Matlab as possible and have a very low entry barrier for people coming over from Matlab. This also explains its name. Some other alternatives are Plotly and Seaborn.
+Importing the matplotlib library Before we start plotting, we need to import the matplotlib library. The way to do this is via the import command.
+1 2 3  import matplotlib.">
+<meta name=author content="Vikas Mishra">
+<link rel=canonical href=https://vimishra.github.io/posts/plotting-with-matplotlib/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://vimishra.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://vimishra.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://vimishra.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://vimishra.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://vimishra.github.io/apple-touch-icon.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.92.0">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Plotting With Matplotlib">
+<meta property="og:description" content="Matplotlib is the defacto Python plotting library. The library was designed to look as similar to Matlab as possible and have a very low entry barrier for people coming over from Matlab. This also explains its name. Some other alternatives are Plotly and Seaborn.
+Importing the matplotlib library Before we start plotting, we need to import the matplotlib library. The way to do this is via the import command.
+1 2 3  import matplotlib.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vimishra.github.io/posts/plotting-with-matplotlib/"><meta property="og:image" content="https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-07-16T11:46:36+05:30">
+<meta property="article:modified_time" content="2021-07-16T11:46:36+05:30"><meta property="og:site_name" content="Vikas's Blog">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="Plotting With Matplotlib">
+<meta name=twitter:description content="Matplotlib is the defacto Python plotting library. The library was designed to look as similar to Matlab as possible and have a very low entry barrier for people coming over from Matlab. This also explains its name. Some other alternatives are Plotly and Seaborn.
+Importing the matplotlib library Before we start plotting, we need to import the matplotlib library. The way to do this is via the import command.
+1 2 3  import matplotlib.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://vimishra.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Plotting With Matplotlib","item":"https://vimishra.github.io/posts/plotting-with-matplotlib/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Plotting With Matplotlib","name":"Plotting With Matplotlib","description":"Matplotlib is the defacto Python plotting library. The library was designed to look as similar to Matlab as possible and have a very low entry barrier for people coming over from Matlab. This also explains its name. Some other alternatives are Plotly and Seaborn.\nImporting the matplotlib library Before we start plotting, we need to import the matplotlib library. The way to do this is via the import command.\n1 2 3  import matplotlib.","keywords":[],"articleBody":"Matplotlib is the defacto Python plotting library. The library was designed to look as similar to Matlab as possible and have a very low entry barrier for people coming over from Matlab. This also explains its name. Some other alternatives are Plotly and Seaborn.\nImporting the matplotlib library Before we start plotting, we need to import the matplotlib library. The way to do this is via the import command.\n1 2 3  import matplotlib.pyplot as plt import numpy as np %matplotlib widget   Basic Plotting The simplest \\((x,y)\\) plots can be plotted using the plt.plot method. With two iterables of the same length. Example is shown below.\n1 2 3 4  ax = [0., 0.5, 1.0, 1.5, 2.0, 2.5, 3.0] ay = [0.0, 0.25, 1.0, 2.25, 4.0, 6.25 , 9.0] plt.plot(ax, ay) plt.show()   Similarly a scatter plot can be created as shown below. This uses the plt.scatter method.\n1 2 3 4 5 6 7 8  import random ax, ay = [], [] for i in range(100): ax.append(random.random()) ay.append(random.random()) plt.scatter(ax,ay) plt.show()   Let’s say you want to plot \\(y=\\sin^2(x)\\) for \\(-2\\pi \\leq x \\leq 2\\pi\\). Then the easiest way to do this to create equally spaced points between \\(-2\\pi\\) and \\(2\\pi\\). And then compute the value of \\(\\sin^2(x)\\) at these points and plot them. This is shown below.\n1 2 3 4 5 6 7 8 9 10 11 12 13  import math xmin, xmax = -2*math.pi, 2*math.pi n = 1000 x = [0.] * n y = [0.] * n dx = (xmax-xmin)/(n-1) for i in range(n): xpt = xmin + i*dx x[i] = xpt y[i] = math.sin(xpt)**2 plt.plot(x,y) plt.show()   Most of the code above is for actually creating the x andy that can then be plotted. This is simplified a lot using the linspace methods and vectorization. Let’s look at that.\nLinspace and vectorization linspace will create equally spaced points between the two ranges specified by the program. The code for achieving the above, can be reduced to as little as\n1 2 3 4 5 6 7 8  import numpy as np n = 1000 xmin, xmax = -2 * np.pi, 2 * np.pi x = np.linspace(xmin, xmax, n) y = np.sin(x)**2 plt.plot(x,y) plt.show()   As you can see, this is considerably less work than what was required before. Let’s say we wanted to also plot \\(\\cos^2(x)\\) along with the \\(\\sin^2(x)\\). This will result in a trivial addition of two lines.\n1 2 3 4 5 6 7 8 9 10  import numpy as np n = 1000 xmin, xmax = -2 * np.pi, 2 * np.pi x = np.linspace(xmin, xmax, n) y1 = np.sin(x)**2 y2 = np.cos(x)**2 plt.plot(x,y1) plt.plot(x,y2) plt.savefig('matplotlib.png')   Let’s plot the \\(sinc\\) function.\n1 2 3 4  x = np.linspace(-20, 20 , 1001) y = np.sin(x)/x plt.plot(x,y) plt.show()   :2: RuntimeWarning: invalid value encountered in true_divide y = np.sin(x)/x  Notice the divide by 0 warning at 0. Matplotlib will ignore the discontinuity and plot the other points.\nLabels, Legends and Customizations We can add a legend using the label argument to plt.plot. It will also need a called to plt.legend() before the plt.show() call.,\n1 2 3 4 5 6 7 8 9  xmin, xmax = -2 * np.pi, 2 * np.pi x = np.linspace(xmin, xmax, n) y1 = np.sin(x)**2 y2 = np.cos(x)**2 plt.plot(x, y1, label='sin^2(x)') plt.plot(x, y2, label='cos^2(x)') plt.legend(loc='upper right') plt.show()   Now let’s add axis labels and plot titles. Let’s modify the above code. Note that \\(LaTeX\\) is used extensively in the snippet below.\n1 2 3 4 5 6 7 8 9 10 11 12  xmin, xmax = -2 * np.pi, 2 * np.pi x = np.linspace(xmin, xmax, n) y1 = np.sin(x)**2 y2 = np.cos(x)**2 plt.plot(x, y1, label='$\\sin^2(x)$') plt.plot(x, y2, label='$\\cos^2(x)$') plt.title('Plot of $\\sin^2(x)$ and $\\cos^2(x)$') plt.xlabel('x') plt.ylabel('$sin^2(x)$ and $cos^2(x)$') plt.legend(loc='upper right') plt.show()   Note : If you want to use \\(LaTeX\\) in the plotting, it can be done easily by updating the Matplotlib’s rc setting.\n1  plt.rc('text',usetex=True)   Let’s look at a slightly more involved example. Let’s plot \\(f_n(x) = x^n\\sin x\\) for \\(n=1,2,3,4\\).\n1 2 3 4 5 6 7  x = np.linspace(-10, 10, 1001) for n in range(1,5): y = x**n * np.sin(x) y /= max(y) plt.plot(x, y, label = r'$x^{}\\sin x$'.format(n)) plt.legend(loc='lower center') plt.show()   Markers By default matplotlib plots don’t have any markers. But you can easily add them. The legend for markers can be seen at https://matplotlib.org/stable/api/markers_api.html\nCommnon ones that you will use most often are\n   Code Description     . Point   o Circle   + Plus   x Cross   D Diamond   v Downword Triangle   ^ Upward Triangle   s Square   *     Colors Colors can be specified by using the color specifiers. Example is shown below\n   Basic Color Code Tableau Colors     b = blue tab:blue   g = green tab:orange   r = red tab:green   c = cyan tab:red   m = magenta tab:purple   y = yellow tab:brown   k = black tab:pink   w = white tab:gray    tab:olive    tab:cyan    Line Style and Width Line styles and width can be specified using the linestyle and linewidth parameter of the plot method. Here is an example that shows all of the above.\n   Code Line Style     - Solid   – Dashed   : Dotted   -. Dash Dot    1 2 3 4 5 6  x = np.linspace(0.1, 1., 100) yi = 1./x ye = 10*np.exp(-2*x) plt.plot(x, yi, color='tab:purple', linestyle=':', linewidth=4.) plt.plot(x, ye, color='tab:orange', linestyle='--', linewidth=4.)   []  color can be abbreviated to c, linewidth to lw and linestyle to ls. The above example becomes.\n1 2 3 4 5 6  x = np.linspace(0.1, 1., 100) yi = 1./x ye = 10*np.exp(-2*x) plt.plot(x, yi, c='tab:purple', ls=':', lw=4.) plt.plot(x, ye, c='tab:orange', ls='--', lw=4.)   []  Example - Moore’s Law Moore’s law can be expressed mathematically as follows\n\\[n_i = n_02^{(y_i - y_0)/T_2}\\]\nwhere \\(n_i, n_0\\) is the number of transistor in the year \\(y_i, y_0\\) . \\(T_2\\) is the number of years it will take to double the transistor count and is equal to 2.\nSince there can be many orders of magnitude on both the years and the transistor count, a log plot is better. Taking \\(log_10\\) on both sides we get\n\\[log_{10}(n_i) = log_{10}(n_0) + \\frac{y_i - y_0}{T_2}log_{10} 2 \\]\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22  # List of years year = [1972, 1974, 1978, 1982, 1985, 1989, 1993, 1997, 1999, 2000, 2003, 2004, 2007, 2008, 2012] # Number of transistors (ntrans) on the CPU in Millions ntrans = [0.0025, 0.005, 0.029, 0.12, 0.275, 1.18, 3.1, 7.5, 24.0, 42.0, 220.0, 592.0, 1720.0, 2046.0, 3100] # Turn ntrans list into a numpy array and multiply by 1e6  ntrans = np.array(ntrans) * 1.e6 y0, n0 = year[0], ntrans[0] # Create a linear array of years  y = np.linspace(y0, year[-1], year[-1] - y0 +1) # Time taken for trans count to double  T2 = 2 moore = np.log10(n0) + (y-y0)/T2 * np.log10(2) plt.plot(year, np.log10(ntrans), '*', markersize=12, color = 'tab:red', markeredgecolor='tab:red', label='observed') plt.plot(y, moore, linewidth=2, color='tab:purple', ls = '--', label='predicted') plt.legend(fontsize=16, loc='upper left') plt.xlabel('year') plt.ylabel('log(ntrans)') plt.title(\"Moore's Law\") plt.show()   1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  k1 = 300 k2 = 100 A0 = 2 t = np.linspace(0,0.015, 100) temp = np.exp(-1 * (k1+k2) * t) A = A0*temp B = (k1/(k1+k2))*A0*(1-temp) C = (k2/(k1+k2))*A0*(1-temp) plt.plot(t, A, label='A') plt.plot(t, B, label='B') plt.plot(t, C, label='C') plt.title(\"Concentration of A, B, and C\") plt.xlabel(\"Time (in s)\") plt.ylabel(\"Concentration (in $mol dm^{-3}$)\") plt.legend(loc='upper right') plt.show()   Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …  ","wordCount":"1249","inLanguage":"en","datePublished":"2021-07-16T11:46:36+05:30","dateModified":"2021-07-16T11:46:36+05:30","author":{"@type":"Person","name":"Vikas Mishra"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://vimishra.github.io/posts/plotting-with-matplotlib/"},"publisher":{"@type":"Organization","name":"Vikas's Blog","logo":{"@type":"ImageObject","url":"https://vimishra.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://vimishra.github.io/ accesskey=h title="Vikas's Blog (Alt + H)">
+<img src=https://vimishra.github.io/apple-touch-icon.png alt=logo aria-label=logo height=35>Vikas's Blog</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://vimishra.github.io/about/ title=About>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/archives/ title=Archive>
+<span>Archive</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/categories/ title=Categories>
+<span>Categories</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://vimishra.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://vimishra.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+Plotting With Matplotlib
+</h1>
+<div class=post-meta><span title="2021-07-16 11:46:36 +0530 IST">July 16, 2021</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Vikas Mishra
+</div>
+</header> <div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#importing-the-matplotlib-library aria-label="Importing the matplotlib library">Importing the matplotlib library</a></li>
+<li>
+<a href=#basic-plotting aria-label="Basic Plotting">Basic Plotting</a></li>
+<li>
+<a href=#linspace-and-vectorization aria-label="Linspace and vectorization">Linspace and vectorization</a></li>
+<li>
+<a href=#labels-legends-and-customizations aria-label="Labels, Legends and Customizations">Labels, Legends and Customizations</a></li>
+<li>
+<a href=#markers aria-label=Markers>Markers</a></li>
+<li>
+<a href=#colors aria-label=Colors>Colors</a></li>
+<li>
+<a href=#line-style-and-width aria-label="Line Style and Width">Line Style and Width</a><ul>
+<li>
+<a href=#example---moores-law aria-label="Example - Moore&amp;rsquo;s Law">Example - Moore&rsquo;s Law</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p><a href=https://www.wikiwand.com/en/Matplotlib>Matplotlib</a> is the defacto Python
+plotting library. The library was designed to look as similar to Matlab as
+possible and have a very low entry barrier for people coming over from Matlab.
+This also explains its name. Some other alternatives are <a href=https://plotly.com/python/getting-started>Plotly</a> and <a href=http://seaborn.pydata.org/introduction.html>Seaborn</a>.</p>
+<h2 id=importing-the-matplotlib-library>Importing the matplotlib library<a hidden class=anchor aria-hidden=true href=#importing-the-matplotlib-library>#</a></h2>
+<p>Before we start plotting, we need to import the matplotlib library. The way to do this is via the <code>import</code> command.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> matplotlib.pyplot <span style=color:#66d9ef>as</span> plt
+<span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+<span style=color:#f92672>%</span>matplotlib widget
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=basic-plotting>Basic Plotting<a hidden class=anchor aria-hidden=true href=#basic-plotting>#</a></h2>
+<p>The simplest \((x,y)\) plots can be plotted using the <code>plt.plot</code> method. With two iterables of the same length. Example is shown below.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>ax <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0.</span>, <span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>1.0</span>, <span style=color:#ae81ff>1.5</span>, <span style=color:#ae81ff>2.0</span>, <span style=color:#ae81ff>2.5</span>, <span style=color:#ae81ff>3.0</span>]
+ay <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0.0</span>, <span style=color:#ae81ff>0.25</span>, <span style=color:#ae81ff>1.0</span>, <span style=color:#ae81ff>2.25</span>, <span style=color:#ae81ff>4.0</span>, <span style=color:#ae81ff>6.25</span> , <span style=color:#ae81ff>9.0</span>]
+plt<span style=color:#f92672>.</span>plot(ax, ay)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_4_0.png alt=png>
+</p>
+<p>Similarly a scatter plot can be created as shown below. This uses the <code>plt.scatter</code> method.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> random 
+ax, ay <span style=color:#f92672>=</span> [], []
+<span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>100</span>):
+    ax<span style=color:#f92672>.</span>append(random<span style=color:#f92672>.</span>random())
+    ay<span style=color:#f92672>.</span>append(random<span style=color:#f92672>.</span>random())
+    
+plt<span style=color:#f92672>.</span>scatter(ax,ay)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_6_0.png alt=png>
+</p>
+<p>Let&rsquo;s say you want to plot \(y=\sin^2(x)\) for \(-2\pi \leq x \leq 2\pi\). Then the easiest way to do this to create equally spaced points between \(-2\pi\) and \(2\pi\). And then compute the value of \(\sin^2(x)\) at these points and plot them. This is shown below.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> math
+xmin, xmax <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>math<span style=color:#f92672>.</span>pi, <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>math<span style=color:#f92672>.</span>pi
+n <span style=color:#f92672>=</span> <span style=color:#ae81ff>1000</span>
+x <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0.</span>] <span style=color:#f92672>*</span> n
+y <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0.</span>] <span style=color:#f92672>*</span> n
+dx <span style=color:#f92672>=</span> (xmax<span style=color:#f92672>-</span>xmin)<span style=color:#f92672>/</span>(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+<span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):
+    xpt <span style=color:#f92672>=</span> xmin <span style=color:#f92672>+</span> i<span style=color:#f92672>*</span>dx
+    x[i] <span style=color:#f92672>=</span> xpt
+    y[i] <span style=color:#f92672>=</span> math<span style=color:#f92672>.</span>sin(xpt)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+    
+plt<span style=color:#f92672>.</span>plot(x,y)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_8_0.png alt=png>
+</p>
+<p>Most of the code above is for actually creating the x andy that can then be plotted. This is simplified a lot using the <code>linspace</code> methods and vectorization. Let&rsquo;s look at that.</p>
+<h2 id=linspace-and-vectorization>Linspace and vectorization<a hidden class=anchor aria-hidden=true href=#linspace-and-vectorization>#</a></h2>
+<p><code>linspace</code> will create equally spaced points between the two ranges specified by the program. The code for achieving the above, can be reduced to as little as</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+n <span style=color:#f92672>=</span> <span style=color:#ae81ff>1000</span>
+xmin, xmax <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi, <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi
+x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(xmin, xmax, n)
+y <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sin(x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+
+plt<span style=color:#f92672>.</span>plot(x,y)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_10_0.png alt=png>
+</p>
+<p>As you can see, this is considerably less work than what was required before. Let&rsquo;s say we wanted to also plot \(\cos^2(x)\) along with the \(\sin^2(x)\). This will result in a trivial addition of two lines.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+n <span style=color:#f92672>=</span> <span style=color:#ae81ff>1000</span>
+xmin, xmax <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi, <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi
+x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(xmin, xmax, n)
+y1 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sin(x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+y2 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>cos(x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+
+plt<span style=color:#f92672>.</span>plot(x,y1)
+plt<span style=color:#f92672>.</span>plot(x,y2)
+plt<span style=color:#f92672>.</span>savefig(<span style=color:#e6db74>&#39;matplotlib.png&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_12_0.png alt=png>
+</p>
+<p>Let&rsquo;s plot the \(sinc\) function.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(<span style=color:#f92672>-</span><span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>20</span> , <span style=color:#ae81ff>1001</span>)
+y <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sin(x)<span style=color:#f92672>/</span>x
+plt<span style=color:#f92672>.</span>plot(x,y)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>&lt;ipython-input-11-2d066c76d442&gt;:2: RuntimeWarning: invalid value encountered in true_divide
+  y = np.sin(x)/x
+</code></pre>
+<p><img loading=lazy src=/posts/plotting-with-matplotlib/output_14_1.png alt=png>
+</p>
+<p>Notice the divide by 0 warning at 0. Matplotlib will ignore the discontinuity and plot the other points.</p>
+<h2 id=labels-legends-and-customizations>Labels, Legends and Customizations<a hidden class=anchor aria-hidden=true href=#labels-legends-and-customizations>#</a></h2>
+<p>We can add a legend using the <code>label</code> argument to <code>plt.plot</code>. It will also need a called to <code>plt.legend()</code> before the <code>plt.show()</code> call.,</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>xmin, xmax <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi, <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi
+x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(xmin, xmax, n)
+y1 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sin(x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+y2 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>cos(x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+
+plt<span style=color:#f92672>.</span>plot(x, y1, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;sin^2(x)&#39;</span>)
+plt<span style=color:#f92672>.</span>plot(x, y2, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;cos^2(x)&#39;</span>)
+plt<span style=color:#f92672>.</span>legend(loc<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;upper right&#39;</span>)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_16_0.png alt=png>
+</p>
+<p>Now let&rsquo;s add axis labels and plot titles. Let&rsquo;s modify the above code. Note that \(LaTeX\) is used extensively in the snippet below.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>xmin, xmax <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi, <span style=color:#ae81ff>2</span> <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>pi
+x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(xmin, xmax, n)
+y1 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>sin(x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+y2 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>cos(x)<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>
+
+plt<span style=color:#f92672>.</span>plot(x, y1, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;$\sin^2(x)$&#39;</span>)
+plt<span style=color:#f92672>.</span>plot(x, y2, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;$\cos^2(x)$&#39;</span>)
+plt<span style=color:#f92672>.</span>title(<span style=color:#e6db74>&#39;Plot of $\sin^2(x)$ and $\cos^2(x)$&#39;</span>)
+plt<span style=color:#f92672>.</span>xlabel(<span style=color:#e6db74>&#39;x&#39;</span>)
+plt<span style=color:#f92672>.</span>ylabel(<span style=color:#e6db74>&#39;$sin^2(x)$ and $cos^2(x)$&#39;</span>)
+plt<span style=color:#f92672>.</span>legend(loc<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;upper right&#39;</span>)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_18_0.png alt=png>
+</p>
+<p>Note : If you want to use \(LaTeX\) in the plotting, it can be done easily by updating the Matplotlib&rsquo;s rc setting.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>plt<span style=color:#f92672>.</span>rc(<span style=color:#e6db74>&#39;text&#39;</span>,usetex<span style=color:#f92672>=</span><span style=color:#66d9ef>True</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s look at a slightly more involved example. Let&rsquo;s plot \(f_n(x) = x^n\sin x\) for \(n=1,2,3,4\).</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(<span style=color:#f92672>-</span><span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>1001</span>)
+<span style=color:#66d9ef>for</span> n <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>5</span>):
+    y <span style=color:#f92672>=</span> x<span style=color:#f92672>**</span>n <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>sin(x)
+    y <span style=color:#f92672>/=</span> max(y)
+    plt<span style=color:#f92672>.</span>plot(x, y, label <span style=color:#f92672>=</span> <span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;$x^</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>\sin x$&#39;</span><span style=color:#f92672>.</span>format(n))
+plt<span style=color:#f92672>.</span>legend(loc<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;lower center&#39;</span>)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_22_0.png alt=png>
+</p>
+<h2 id=markers>Markers<a hidden class=anchor aria-hidden=true href=#markers>#</a></h2>
+<p>By default matplotlib plots don&rsquo;t have any markers. But you can easily add them. The legend for markers can be seen at <a href=https://matplotlib.org/stable/api/markers_api.html>https://matplotlib.org/stable/api/markers_api.html</a></p>
+<p>Commnon ones that you will use most often are</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>Point</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Circle</td>
+</tr>
+<tr>
+<td>+</td>
+<td>Plus</td>
+</tr>
+<tr>
+<td>x</td>
+<td>Cross</td>
+</tr>
+<tr>
+<td>D</td>
+<td>Diamond</td>
+</tr>
+<tr>
+<td>v</td>
+<td>Downword Triangle</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Upward Triangle</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Square</td>
+</tr>
+<tr>
+<td>*</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id=colors>Colors<a hidden class=anchor aria-hidden=true href=#colors>#</a></h2>
+<p>Colors can be specified by using the color specifiers. Example is shown below</p>
+<table>
+<thead>
+<tr>
+<th>Basic Color Code</th>
+<th>Tableau Colors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b = blue</td>
+<td>tab:blue</td>
+</tr>
+<tr>
+<td>g = green</td>
+<td>tab:orange</td>
+</tr>
+<tr>
+<td>r = red</td>
+<td>tab:green</td>
+</tr>
+<tr>
+<td>c = cyan</td>
+<td>tab:red</td>
+</tr>
+<tr>
+<td>m = magenta</td>
+<td>tab:purple</td>
+</tr>
+<tr>
+<td>y = yellow</td>
+<td>tab:brown</td>
+</tr>
+<tr>
+<td>k = black</td>
+<td>tab:pink</td>
+</tr>
+<tr>
+<td>w = white</td>
+<td>tab:gray</td>
+</tr>
+<tr>
+<td></td>
+<td>tab:olive</td>
+</tr>
+<tr>
+<td></td>
+<td>tab:cyan</td>
+</tr>
+</tbody>
+</table>
+<h2 id=line-style-and-width>Line Style and Width<a hidden class=anchor aria-hidden=true href=#line-style-and-width>#</a></h2>
+<p>Line styles and width can be specified using the <code>linestyle</code> and <code>linewidth</code> parameter of the <code>plot</code> method. Here is an example that shows all of the above.</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Line Style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>Solid</td>
+</tr>
+<tr>
+<td>&ndash;</td>
+<td>Dashed</td>
+</tr>
+<tr>
+<td>:</td>
+<td>Dotted</td>
+</tr>
+<tr>
+<td>-.</td>
+<td>Dash Dot</td>
+</tr>
+</tbody>
+</table>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(<span style=color:#ae81ff>0.1</span>, <span style=color:#ae81ff>1.</span>, <span style=color:#ae81ff>100</span>)
+yi <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.</span><span style=color:#f92672>/</span>x
+ye <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span><span style=color:#f92672>*</span>np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>x)
+
+plt<span style=color:#f92672>.</span>plot(x, yi, color<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tab:purple&#39;</span>, linestyle<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;:&#39;</span>, linewidth<span style=color:#f92672>=</span><span style=color:#ae81ff>4.</span>)
+plt<span style=color:#f92672>.</span>plot(x, ye, color<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tab:orange&#39;</span>, linestyle<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;--&#39;</span>, linewidth<span style=color:#f92672>=</span><span style=color:#ae81ff>4.</span>)
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[&lt;matplotlib.lines.Line2D at 0x7ffd325533a0&gt;]
+</code></pre>
+<p><img loading=lazy src=/posts/plotting-with-matplotlib/output_24_1.png alt=png>
+</p>
+<p><code>color</code> can be abbreviated to <code>c</code>, <code>linewidth</code> to <code>lw</code> and <code>linestyle</code> to <code>ls</code>. The above example becomes.</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>x <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(<span style=color:#ae81ff>0.1</span>, <span style=color:#ae81ff>1.</span>, <span style=color:#ae81ff>100</span>)
+yi <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.</span><span style=color:#f92672>/</span>x
+ye <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span><span style=color:#f92672>*</span>np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>x)
+
+plt<span style=color:#f92672>.</span>plot(x, yi, c<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tab:purple&#39;</span>, ls<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;:&#39;</span>, lw<span style=color:#f92672>=</span><span style=color:#ae81ff>4.</span>)
+plt<span style=color:#f92672>.</span>plot(x, ye, c<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tab:orange&#39;</span>, ls<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;--&#39;</span>, lw<span style=color:#f92672>=</span><span style=color:#ae81ff>4.</span>)
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[&lt;matplotlib.lines.Line2D at 0x7ffd32617e80&gt;]
+</code></pre>
+<p><img loading=lazy src=/posts/plotting-with-matplotlib/output_26_1.png alt=png>
+</p>
+<h3 id=example---moores-law>Example - Moore&rsquo;s Law<a hidden class=anchor aria-hidden=true href=#example---moores-law>#</a></h3>
+<p>Moore&rsquo;s law can be expressed mathematically as follows</p>
+<p>\[n_i = n_02^{(y_i - y_0)/T_2}\]</p>
+<p>where \(n_i, n_0\) is the number of transistor in the year \(y_i, y_0\) . \(T_2\) is the number of years it will take to double the transistor count and is equal to 2.</p>
+<p>Since there can be many orders of magnitude on both the years and the transistor count, a log plot is better. Taking \(log_10\) on both sides we get</p>
+<p>\[log_{10}(n_i) = log_{10}(n_0) + \frac{y_i - y_0}{T_2}log_{10} 2 \]</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># List of years</span>
+year <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1972</span>, <span style=color:#ae81ff>1974</span>, <span style=color:#ae81ff>1978</span>, <span style=color:#ae81ff>1982</span>, <span style=color:#ae81ff>1985</span>, <span style=color:#ae81ff>1989</span>, <span style=color:#ae81ff>1993</span>, <span style=color:#ae81ff>1997</span>, <span style=color:#ae81ff>1999</span>, <span style=color:#ae81ff>2000</span>, <span style=color:#ae81ff>2003</span>, <span style=color:#ae81ff>2004</span>, <span style=color:#ae81ff>2007</span>, <span style=color:#ae81ff>2008</span>, <span style=color:#ae81ff>2012</span>]
+<span style=color:#75715e># Number of transistors (ntrans) on the CPU in Millions</span>
+ntrans <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0.0025</span>, <span style=color:#ae81ff>0.005</span>, <span style=color:#ae81ff>0.029</span>, <span style=color:#ae81ff>0.12</span>, <span style=color:#ae81ff>0.275</span>, <span style=color:#ae81ff>1.18</span>, <span style=color:#ae81ff>3.1</span>, <span style=color:#ae81ff>7.5</span>, <span style=color:#ae81ff>24.0</span>, <span style=color:#ae81ff>42.0</span>, <span style=color:#ae81ff>220.0</span>, <span style=color:#ae81ff>592.0</span>, <span style=color:#ae81ff>1720.0</span>, <span style=color:#ae81ff>2046.0</span>, <span style=color:#ae81ff>3100</span>]
+<span style=color:#75715e># Turn ntrans list into a numpy array and multiply by 1e6 </span>
+ntrans <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array(ntrans) <span style=color:#f92672>*</span> <span style=color:#ae81ff>1.e6</span>
+
+y0, n0 <span style=color:#f92672>=</span> year[<span style=color:#ae81ff>0</span>], ntrans[<span style=color:#ae81ff>0</span>]
+<span style=color:#75715e># Create a linear array of years </span>
+y <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(y0, year[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>], year[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> y0 <span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)
+<span style=color:#75715e># Time taken for trans count to double </span>
+T2 <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+
+moore <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>log10(n0) <span style=color:#f92672>+</span> (y<span style=color:#f92672>-</span>y0)<span style=color:#f92672>/</span>T2 <span style=color:#f92672>*</span> np<span style=color:#f92672>.</span>log10(<span style=color:#ae81ff>2</span>)
+
+plt<span style=color:#f92672>.</span>plot(year, np<span style=color:#f92672>.</span>log10(ntrans), <span style=color:#e6db74>&#39;*&#39;</span>, markersize<span style=color:#f92672>=</span><span style=color:#ae81ff>12</span>, color <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;tab:red&#39;</span>, markeredgecolor<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tab:red&#39;</span>, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;observed&#39;</span>)
+plt<span style=color:#f92672>.</span>plot(y, moore, linewidth<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, color<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;tab:purple&#39;</span>, ls <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;--&#39;</span>, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;predicted&#39;</span>)
+plt<span style=color:#f92672>.</span>legend(fontsize<span style=color:#f92672>=</span><span style=color:#ae81ff>16</span>, loc<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;upper left&#39;</span>)
+plt<span style=color:#f92672>.</span>xlabel(<span style=color:#e6db74>&#39;year&#39;</span>)
+plt<span style=color:#f92672>.</span>ylabel(<span style=color:#e6db74>&#39;log(ntrans)&#39;</span>)
+plt<span style=color:#f92672>.</span>title(<span style=color:#e6db74>&#34;Moore&#39;s Law&#34;</span>)
+plt<span style=color:#f92672>.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img loading=lazy src=/posts/plotting-with-matplotlib/output_28_0.png alt=png>
+</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>k1 <span style=color:#f92672>=</span> <span style=color:#ae81ff>300</span>
+k2 <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>
+A0 <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+
+t <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>linspace(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0.015</span>, <span style=color:#ae81ff>100</span>)
+temp <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>*</span> (k1<span style=color:#f92672>+</span>k2) <span style=color:#f92672>*</span> t)
+
+A <span style=color:#f92672>=</span> A0<span style=color:#f92672>*</span>temp
+B <span style=color:#f92672>=</span> (k1<span style=color:#f92672>/</span>(k1<span style=color:#f92672>+</span>k2))<span style=color:#f92672>*</span>A0<span style=color:#f92672>*</span>(<span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>temp)
+C <span style=color:#f92672>=</span> (k2<span style=color:#f92672>/</span>(k1<span style=color:#f92672>+</span>k2))<span style=color:#f92672>*</span>A0<span style=color:#f92672>*</span>(<span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>temp)
+
+plt<span style=color:#f92672>.</span>plot(t, A, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;A&#39;</span>)
+plt<span style=color:#f92672>.</span>plot(t, B, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;B&#39;</span>)
+plt<span style=color:#f92672>.</span>plot(t, C, label<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;C&#39;</span>)
+plt<span style=color:#f92672>.</span>title(<span style=color:#e6db74>&#34;Concentration of A, B, and C&#34;</span>)
+plt<span style=color:#f92672>.</span>xlabel(<span style=color:#e6db74>&#34;Time (in s)&#34;</span>)
+plt<span style=color:#f92672>.</span>ylabel(<span style=color:#e6db74>&#34;Concentration (in $mol dm^{-3}$)&#34;</span>)
+plt<span style=color:#f92672>.</span>legend(loc<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;upper right&#39;</span>)
+plt<span style=color:#f92672>.</span>show()
+
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>Canvas(toolbar=Toolbar(toolitems=[('Home', 'Reset original view', 'home', 'home'), ('Back', 'Back to previous …
+</code></pre>
+<p><img loading=lazy src=/posts/plotting-with-matplotlib/output_29_1.png alt=png>
+</p>
+</div>
+<footer class=post-footer>
+<nav class=paginav>
+<a class=prev href=https://vimishra.github.io/posts/notebook-to-blog-post/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Convert Jupyter Notebook to Hugo Blog Post</span>
+</a>
+<a class=next href=https://vimishra.github.io/posts/primes-list/>
+<span class=title>Next Page »</span>
+<br>
+<span>Primes List</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://vimishra.github.io/>Vikas's Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>

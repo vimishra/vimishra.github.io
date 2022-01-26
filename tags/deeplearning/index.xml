@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>deeplearning on Vikas&#39;s Blog</title>
+    <link>https://vimishra.github.io/tags/deeplearning/</link>
+    <description>Recent content in deeplearning on Vikas&#39;s Blog</description>
+    <image>
+      <url>https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 26 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://vimishra.github.io/tags/deeplearning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic Digit Classifier (for 2s and 9s) without tunable parameters</title>
+      <link>https://vimishra.github.io/posts/basic-digit-classifier/</link>
+      <pubDate>Sun, 26 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://vimishra.github.io/posts/basic-digit-classifier/</guid>
+      <description>Motivation and approach In this case we are trying to build a very basic Digit Classifier. This is strictly speaking not a Deep Learning or a Machine Learning classifier since there are no tunable parameters here. But the intent behind this approach is to understand the basics of how to do digit classification. The intent here is not to do something super hard or tricky but to understand the basics of how to use Fast.</description>
+    </item>
+    
+  </channel>
+</rss>

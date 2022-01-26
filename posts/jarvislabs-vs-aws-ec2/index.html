@@ -1,0 +1,201 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>DL Cloud GPU Server - JarvisLabs vs AWS EC2 | Vikas's Blog</title>
+<meta name=keywords content>
+<meta name=description content="As I started getting deeper into the Fast.ai course, I had to make a decision on what Cloud GPU service to use. In general, there are two possibilities as listed on https://course.fast.ai/.
+ Notebook Server Full Linux Server  A notebook server is basically something that has a GPU but only exposes a notebook interface to you whereas a Full Linux server, will basically look like a remote machine in the cloud.">
+<meta name=author content="Vikas Mishra">
+<link rel=canonical href=https://vimishra.github.io/posts/jarvislabs-vs-aws-ec2/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
+<link rel=preload href=/apple-touch-icon.png as=image>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://vimishra.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://vimishra.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://vimishra.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://vimishra.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://vimishra.github.io/apple-touch-icon.png>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.92.0">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="DL Cloud GPU Server - JarvisLabs vs AWS EC2">
+<meta property="og:description" content="As I started getting deeper into the Fast.ai course, I had to make a decision on what Cloud GPU service to use. In general, there are two possibilities as listed on https://course.fast.ai/.
+ Notebook Server Full Linux Server  A notebook server is basically something that has a GPU but only exposes a notebook interface to you whereas a Full Linux server, will basically look like a remote machine in the cloud.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vimishra.github.io/posts/jarvislabs-vs-aws-ec2/"><meta property="og:image" content="https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-04T22:50:43+05:30">
+<meta property="article:modified_time" content="2021-09-04T22:50:43+05:30"><meta property="og:site_name" content="Vikas's Blog">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://vimishra.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name=twitter:title content="DL Cloud GPU Server - JarvisLabs vs AWS EC2">
+<meta name=twitter:description content="As I started getting deeper into the Fast.ai course, I had to make a decision on what Cloud GPU service to use. In general, there are two possibilities as listed on https://course.fast.ai/.
+ Notebook Server Full Linux Server  A notebook server is basically something that has a GPU but only exposes a notebook interface to you whereas a Full Linux server, will basically look like a remote machine in the cloud.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://vimishra.github.io/posts/"},{"@type":"ListItem","position":2,"name":"DL Cloud GPU Server - JarvisLabs vs AWS EC2","item":"https://vimishra.github.io/posts/jarvislabs-vs-aws-ec2/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"DL Cloud GPU Server - JarvisLabs vs AWS EC2","name":"DL Cloud GPU Server - JarvisLabs vs AWS EC2","description":"As I started getting deeper into the Fast.ai course, I had to make a decision on what Cloud GPU service to use. In general, there are two possibilities as listed on https://course.fast.ai/.\n Notebook Server Full Linux Server  A notebook server is basically something that has a GPU but only exposes a notebook interface to you whereas a Full Linux server, will basically look like a remote machine in the cloud.","keywords":[],"articleBody":"As I started getting deeper into the Fast.ai course, I had to make a decision on what Cloud GPU service to use. In general, there are two possibilities as listed on https://course.fast.ai/.\n Notebook Server Full Linux Server  A notebook server is basically something that has a GPU but only exposes a notebook interface to you whereas a Full Linux server, will basically look like a remote machine in the cloud. But it will be a full fledged server. My preference is for a full linux server because of the flexibility.\nThere are many options that are listed for a full linux server on the fast.ai website. 1. Google Cloud 2. AWS EC2 3. Azure 4. DataCrunch.io 5. JarvisLabs.ai\nI have decided to go with JarvisLabs.ai virtual server. I am trying to list down below the main advantages of it. This is as much for me as it is for anybody else, so I don’t go down the rabbit hole of figuring out if I should explore another service.\nCost The table roughly lists the approximate cost assoicated with these.\n   Name of the service Minimum Cost     Google Cloud $0.382/hr for T4 GPU/4 CPU   AWS EC2 $0.526/hr for T4 GPU/4 CPU   Azure $0.40/hr for K80 GPU/6 CPU   DataCrunch.io $0.52/hr for Tesla V100/6 CPU   JarvisLabs.ai $0.395/hr for RTX 5000/7 CPU    As is clear, JarvisLabs cost is very competitive especially for the HW provided. So from a cost perspective it is a no-brainer. But what about performance?\nPerformance In my very basic and unscientific benchmarking, it is 2x faster than the alternatives. Here is the screenshot that shows a Fast.ai run of sentiment analysis on it. You can see the speed difference very easily.\nThe image below shows how long the run took on an AWS EC2 server.\nAnd here are the statistics for the same run on JarvisLabs.ai\nJarvisLabs virtual server took 3'11\" as against 07'32\" for the AWS EC2 server. That is indeed 2x as fast.\nHardware is better. JarvisLabs has RTX5000 GPU, and AWS EC2 has T4 GPU. Both have 16 GB VRAM, so from a memory perspective (at least sizewise) they are the same. However RTX5000 has a much faster memory than T4. Also RTX 5000 runs much faster than T4. This is seen in the benchmark results too.\nJarvisLabs is already setup for fast.ai You don’t have to configure the server for fast.ai. The server is already setup for fast.ai. So it has both the convenience of something like a notebook server, but also much faster to get started. The website is extremely simple and straightforward without you having to select a bazillion options so it is less confusing (at least for me.)\n","wordCount":"444","inLanguage":"en","datePublished":"2021-09-04T22:50:43+05:30","dateModified":"2021-09-04T22:50:43+05:30","author":{"@type":"Person","name":"Vikas Mishra"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://vimishra.github.io/posts/jarvislabs-vs-aws-ec2/"},"publisher":{"@type":"Organization","name":"Vikas's Blog","logo":{"@type":"ImageObject","url":"https://vimishra.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://vimishra.github.io/ accesskey=h title="Vikas's Blog (Alt + H)">
+<img src=https://vimishra.github.io/apple-touch-icon.png alt=logo aria-label=logo height=35>Vikas's Blog</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://vimishra.github.io/about/ title=About>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/archives/ title=Archive>
+<span>Archive</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/categories/ title=Categories>
+<span>Categories</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=https://vimishra.github.io/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://vimishra.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://vimishra.github.io/posts/>Posts</a></div>
+<h1 class=post-title>
+DL Cloud GPU Server - JarvisLabs vs AWS EC2
+</h1>
+<div class=post-meta><span title="2021-09-04 22:50:43 +0530 IST">September 4, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Vikas Mishra
+</div>
+</header> <div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#cost aria-label=Cost>Cost</a></li>
+<li>
+<a href=#performance aria-label=Performance>Performance</a></li>
+<li>
+<a href=#hardware-is-better aria-label="Hardware is better.">Hardware is better.</a></li>
+<li>
+<a href=#jarvislabs-is-already-setup-for-fastai aria-label="JarvisLabs is already setup for fast.ai">JarvisLabs is already setup for fast.ai</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p>As I started getting deeper into the Fast.ai course, I had to make a decision on what Cloud GPU service to use. In general, there are two possibilities as listed on <a href=https://course.fast.ai/>https://course.fast.ai/</a>.</p>
+<ol>
+<li>Notebook Server</li>
+<li>Full Linux Server</li>
+</ol>
+<p>A notebook server is basically something that has a GPU but only exposes a notebook interface to you whereas a Full Linux server, will basically look like a remote machine in the cloud. But it will be a full fledged server. My preference is for a full linux server because of the flexibility.</p>
+<p>There are many options that are listed for a full linux server on the fast.ai website.
+1. Google Cloud
+2. AWS EC2
+3. Azure
+4. DataCrunch.io
+5. JarvisLabs.ai</p>
+<p>I have decided to go with JarvisLabs.ai virtual server. I am trying to list down below the main advantages of it. This is as much for me as it is for anybody else, so I don&rsquo;t go down the rabbit hole of figuring out if I should explore another service.</p>
+<h2 id=cost>Cost<a hidden class=anchor aria-hidden=true href=#cost>#</a></h2>
+<p>The table roughly lists the approximate cost assoicated with these.</p>
+<table>
+<thead>
+<tr>
+<th style=text-align:left>Name of the service</th>
+<th style=text-align:left>Minimum Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style=text-align:left>Google Cloud</td>
+<td style=text-align:left>$0.382/hr for T4 GPU/4 CPU</td>
+</tr>
+<tr>
+<td style=text-align:left>AWS EC2</td>
+<td style=text-align:left>$0.526/hr for T4 GPU/4 CPU</td>
+</tr>
+<tr>
+<td style=text-align:left>Azure</td>
+<td style=text-align:left>$0.40/hr for K80 GPU/6 CPU</td>
+</tr>
+<tr>
+<td style=text-align:left>DataCrunch.io</td>
+<td style=text-align:left>$0.52/hr for Tesla V100/6 CPU</td>
+</tr>
+<tr>
+<td style=text-align:left>JarvisLabs.ai</td>
+<td style=text-align:left>$0.395/hr for RTX 5000/7 CPU</td>
+</tr>
+</tbody>
+</table>
+<p>As is clear, JarvisLabs cost is very competitive especially for the HW provided. So from a cost perspective it is a no-brainer. But what about performance?</p>
+<h2 id=performance>Performance<a hidden class=anchor aria-hidden=true href=#performance>#</a></h2>
+<p>In my very basic and unscientific benchmarking, it is 2x faster than the alternatives. Here is the screenshot that shows a Fast.ai run of sentiment analysis on it. You can see the speed difference very easily.</p>
+<p>The image below shows how long the run took on an AWS EC2 server.</p>
+<p><img loading=lazy src=/posts/AWS_EC2.png alt="AWS EC2 Sentiment Analysis Run">
+</p>
+<p>And here are the statistics for the same run on JarvisLabs.ai</p>
+<p><img loading=lazy src=/posts/JarvisLabs.png alt="JarvisLabs Sentiment Analysis Run">
+</p>
+<p>JarvisLabs virtual server took 3'11" as against 07'32" for the AWS EC2 server. That is indeed 2x as fast.</p>
+<h2 id=hardware-is-better>Hardware is better.<a hidden class=anchor aria-hidden=true href=#hardware-is-better>#</a></h2>
+<p>JarvisLabs has RTX5000 GPU, and AWS EC2 has T4 GPU. Both have 16 GB VRAM, so from a memory perspective (at least sizewise) they are the same. However RTX5000 has a much faster memory than T4. Also RTX 5000 runs much faster than T4. This is seen in the benchmark results too.</p>
+<h2 id=jarvislabs-is-already-setup-for-fastai>JarvisLabs is already setup for fast.ai<a hidden class=anchor aria-hidden=true href=#jarvislabs-is-already-setup-for-fastai>#</a></h2>
+<p>You don&rsquo;t have to configure the server for fast.ai. The server is already setup for fast.ai. So it has both the convenience of something like a notebook server, but also much faster to get started. The website is extremely simple and straightforward without you having to select a bazillion options so it is less confusing (at least for me.)</p>
+</div>
+<footer class=post-footer>
+<nav class=paginav>
+<a class=prev href=https://vimishra.github.io/posts/getting-back-to-blogging/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Getting Back to Blogging</span>
+</a>
+<a class=next href=https://vimishra.github.io/posts/check-if-pytorch-is-using-gpu/>
+<span class=title>Next Page »</span>
+<br>
+<span>Check if PyTorch is using the GPU</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2022 <a href=https://vimishra.github.io/>Vikas's Blog</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
+</body>
+</html>
