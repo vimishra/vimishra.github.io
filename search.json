@@ -14,6 +14,20 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
+    "objectID": "posts/hello.html",
+    "href": "posts/hello.html",
+    "title": "Quarto Basics and Prime Numbers",
+    "section": "",
+    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\nLet’s see how well it handles a python code that I wrote (or rather asked chatGPT to write) for finding out a prime number between 1 to N. N is a number input by the user\n\n# Define a function to check if a number is prime or not\ndef is_prime(n):\n    # If n is less than 2, it is not prime\n    if n &lt; 2:\n        return False\n    # Loop from 2 to the square root of n\n    for i in range(2, int(n**0.5) + 1):\n        # If n is divisible by i, it is not prime\n        if n % i == 0:\n            return False\n    # If none of the above conditions are met, n is prime\n    return True\n\n# Define a function to print all prime numbers between 1 and N\ndef print_primes(N):\n    # Loop from 1 to N\n    for i in range(1, N + 1):\n        # If i is prime, print it\n        if is_prime(i):\n            print(i)\n\n# Get the input from the user\nN = int(input(\"Enter a positive integer: \"))\n\n# Call the function with the input\nprint_primes(N)\n\nEnter a positive integer:  135\n\n\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29\n31\n37\n41\n43\n47\n53\n59\n61\n67\n71\n73\n79\n83\n89\n97\n101\n103\n107\n109\n113\n127\n131"
+  },
+  {
+    "objectID": "posts/hello.html#polar-axis",
+    "href": "posts/hello.html#polar-axis",
+    "title": "Quarto Basics and Prime Numbers",
+    "section": "",
+    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\nLet’s see how well it handles a python code that I wrote (or rather asked chatGPT to write) for finding out a prime number between 1 to N. N is a number input by the user\n\n# Define a function to check if a number is prime or not\ndef is_prime(n):\n    # If n is less than 2, it is not prime\n    if n &lt; 2:\n        return False\n    # Loop from 2 to the square root of n\n    for i in range(2, int(n**0.5) + 1):\n        # If n is divisible by i, it is not prime\n        if n % i == 0:\n            return False\n    # If none of the above conditions are met, n is prime\n    return True\n\n# Define a function to print all prime numbers between 1 and N\ndef print_primes(N):\n    # Loop from 1 to N\n    for i in range(1, N + 1):\n        # If i is prime, print it\n        if is_prime(i):\n            print(i)\n\n# Get the input from the user\nN = int(input(\"Enter a positive integer: \"))\n\n# Call the function with the input\nprint_primes(N)\n\nEnter a positive integer:  135\n\n\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29\n31\n37\n41\n43\n47\n53\n59\n61\n67\n71\n73\n79\n83\n89\n97\n101\n103\n107\n109\n113\n127\n131"
+  },
+  {
     "objectID": "posts/quarto_basics.html",
     "href": "posts/quarto_basics.html",
     "title": "Quarto Basics",
@@ -25,7 +39,7 @@
     "href": "index.html",
     "title": "Cognitive Overload",
     "section": "",
-    "text": "Quarto Basics\n\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2023\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nApr 8, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nApr 5, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto Basics\n\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2023\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nApr 8, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nApr 5, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\n  \n\n\n\n\nQuarto Basics and Prime Numbers\n\n\n\n\n\n\n\n\n\n\n\n\nApr 1, 2023\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -33,19 +47,5 @@
     "title": "Vikas Mishra",
     "section": "",
     "text": "Hello, My name is Vikas Mishra. I am a chip designer by profession and have been doing this for about 25 years. I have worked for companies such as Texas Instruments, Nvidia, Qualcomm, Intel and Google. I have worked on many key chips that have hopefully made the world a sligthly better and a more comfortable place. If you have ever used a DSL modem, or an Android tablet, or a laptop, chances that I have worked on it.\nI am trying to learn the new field of Deep Learning. And I am hoping this blog, will help me in documenting my journey."
-  },
-  {
-    "objectID": "hello.html",
-    "href": "hello.html",
-    "title": "Quarto Basics and Prime Numbers",
-    "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\nLet’s see how well it handles a python code that I wrote (or rather asked chatGPT to write) for finding out a prime number between 1 to N. N is a number input by the user\n\n# Define a function to check if a number is prime or not\ndef is_prime(n):\n    # If n is less than 2, it is not prime\n    if n &lt; 2:\n        return False\n    # Loop from 2 to the square root of n\n    for i in range(2, int(n**0.5) + 1):\n        # If n is divisible by i, it is not prime\n        if n % i == 0:\n            return False\n    # If none of the above conditions are met, n is prime\n    return True\n\n# Define a function to print all prime numbers between 1 and N\ndef print_primes(N):\n    # Loop from 1 to N\n    for i in range(1, N + 1):\n        # If i is prime, print it\n        if is_prime(i):\n            print(i)\n\n# Get the input from the user\nN = int(input(\"Enter a positive integer: \"))\n\n# Call the function with the input\nprint_primes(N)\n\nEnter a positive integer:  135\n\n\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29\n31\n37\n41\n43\n47\n53\n59\n61\n67\n71\n73\n79\n83\n89\n97\n101\n103\n107\n109\n113\n127\n131"
-  },
-  {
-    "objectID": "hello.html#polar-axis",
-    "href": "hello.html#polar-axis",
-    "title": "Quarto Basics and Prime Numbers",
-    "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\nLet’s see how well it handles a python code that I wrote (or rather asked chatGPT to write) for finding out a prime number between 1 to N. N is a number input by the user\n\n# Define a function to check if a number is prime or not\ndef is_prime(n):\n    # If n is less than 2, it is not prime\n    if n &lt; 2:\n        return False\n    # Loop from 2 to the square root of n\n    for i in range(2, int(n**0.5) + 1):\n        # If n is divisible by i, it is not prime\n        if n % i == 0:\n            return False\n    # If none of the above conditions are met, n is prime\n    return True\n\n# Define a function to print all prime numbers between 1 and N\ndef print_primes(N):\n    # Loop from 1 to N\n    for i in range(1, N + 1):\n        # If i is prime, print it\n        if is_prime(i):\n            print(i)\n\n# Get the input from the user\nN = int(input(\"Enter a positive integer: \"))\n\n# Call the function with the input\nprint_primes(N)\n\nEnter a positive integer:  135\n\n\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29\n31\n37\n41\n43\n47\n53\n59\n61\n67\n71\n73\n79\n83\n89\n97\n101\n103\n107\n109\n113\n127\n131"
   }
 ]
