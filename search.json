@@ -14,20 +14,6 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "posts/hello.html",
-    "href": "posts/hello.html",
-    "title": "Quarto Basics and Prime Numbers",
-    "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\nLet’s see how does this code for printing all the prime numbers between 1 and N where N is an input to the function.\n\nimport math\n\n# Define a function to check if a number is prime or not\ndef is_prime(n):\n    # If n is less than 2, it is not prime\n    if n &lt; 2:\n        return False\n    # Loop from 2 to the square root of n\n    for i in range(2, int(n**0.5) + 1):\n        # If n is divisible by i, it is not prime\n        if n % i == 0:\n            return False\n    # If none of the above conditions are met, n is prime\n    return True\n\n# Define a function to print all prime numbers between 1 and N\ndef print_primes(N):\n    # Loop from 1 to N\n    for i in range(1, N + 1):\n        # If i is prime, print it\n        if is_prime(i):\n            print(i)\n\n# Get the input from the user\nN = int(input(\"Enter a positive integer: \"))\n\n# Call the function with the input\nprint_primes(N)\n\n2\n3\n5\n7"
-  },
-  {
-    "objectID": "posts/hello.html#polar-axis",
-    "href": "posts/hello.html#polar-axis",
-    "title": "Quarto Basics and Prime Numbers",
-    "section": "",
-    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\nLet’s see how does this code for printing all the prime numbers between 1 and N where N is an input to the function.\n\nimport math\n\n# Define a function to check if a number is prime or not\ndef is_prime(n):\n    # If n is less than 2, it is not prime\n    if n &lt; 2:\n        return False\n    # Loop from 2 to the square root of n\n    for i in range(2, int(n**0.5) + 1):\n        # If n is divisible by i, it is not prime\n        if n % i == 0:\n            return False\n    # If none of the above conditions are met, n is prime\n    return True\n\n# Define a function to print all prime numbers between 1 and N\ndef print_primes(N):\n    # Loop from 1 to N\n    for i in range(1, N + 1):\n        # If i is prime, print it\n        if is_prime(i):\n            print(i)\n\n# Get the input from the user\nN = int(input(\"Enter a positive integer: \"))\n\n# Call the function with the input\nprint_primes(N)\n\n2\n3\n5\n7"
-  },
-  {
     "objectID": "posts/quarto_basics.html",
     "href": "posts/quarto_basics.html",
     "title": "Quarto Basics",
@@ -39,7 +25,7 @@
     "href": "index.html",
     "title": "Cognitive Overload",
     "section": "",
-    "text": "Quarto Basics\n\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2023\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nApr 8, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nApr 5, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\n  \n\n\n\n\nQuarto Basics and Prime Numbers\n\n\n\n\n\n\n\n\n\n\n\n\nApr 1, 2023\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto Basics\n\n\n\n\n\n\n\n\n\n\n\n\nApr 9, 2023\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nApr 8, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nApr 5, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
