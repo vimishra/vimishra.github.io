@@ -33,5 +33,19 @@
     "title": "Vikas Mishra",
     "section": "",
     "text": "Hello, My name is Vikas Mishra. I am a chip designer by profession and have been doing this for about 25 years. I have worked for companies such as Texas Instruments, Nvidia, Qualcomm, Intel and Google. I have worked on many key chips that have hopefully made the world a sligthly better and a more comfortable place. If you have ever used a DSL modem, or an Android tablet, or a laptop, chances that I have worked on it.\nI am trying to learn the new field of Deep Learning. And I am hoping this blog, will help me in documenting my journey."
+  },
+  {
+    "objectID": "hello.html",
+    "href": "hello.html",
+    "title": "Quarto Basics",
+    "section": "",
+    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+  },
+  {
+    "objectID": "hello.html#polar-axis",
+    "href": "hello.html#polar-axis",
+    "title": "Quarto Basics",
+    "section": "",
+    "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
   }
 ]
